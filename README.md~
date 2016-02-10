@@ -15,6 +15,7 @@ These two files are public and their format are the SequenceFile in Apache Spark
 First, you need to download the IndexedRDD package from [here](http://spark-packages.org/package/amplab/spark-indexedrdd) and you can see the examples about using this package [here](https://github.com/amplab/spark-indexedrdd).
 After you have the indexedRDD, you can start the Spark shell like this
 > ./bin/spark-shell --driver-memory 8g --executor-memory 8g --jars spark-indexedrdd-0.1.jar,guava-18.0.jar
+
 guava-18.0.jar is a widely used package for HashMap data structure.
 
 
