@@ -1,0 +1,3 @@
+ val query = sc.textFile("queries.out").map(line => ( line.split(" ")(0).toDouble, line.split(" ")(1).toDouble, line.split(" ")(2).toDouble, line.split(" ")(3).toDouble )).collect()
+ 
+val result = getDistance(query, lowdepth, highdepth)

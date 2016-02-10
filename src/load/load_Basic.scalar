@@ -5,3 +5,4 @@ import scala.collection.mutable.ListBuffer
 
 
 val pairs_ac = sc.sequenceFile[Long, Double]("nyspark_ac").partitionBy(new HashPartitioner(100));
+val hashpair_ac = IndexedRDD(pairs_ac).cache()

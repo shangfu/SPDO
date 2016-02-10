@@ -4,5 +4,5 @@ import edu.berkeley.cs.amplab.spark.indexedrdd.IndexedRDD
 import scala.collection.mutable.ListBuffer
 
 
-
 val pairs = sc.sequenceFile[Long, Double]("nyspark").partitionBy(new HashPartitioner(100));
+val hashpair = IndexedRDD(pairs).cache()
