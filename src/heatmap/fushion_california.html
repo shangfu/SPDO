@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Heatmaps</title>
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+        width:100%;
+      }
+#floating-panel {
+  position: absolute;
+  top: 10px;
+  left: 25%;
+  z-index: 5;
+  background-color: #fff;
+  padding: 5px;
+  border: 1px solid #999;
+  text-align: center;
+  font-family: 'Roboto','sans-serif';
+  line-height: 30px;
+  padding-left: 10px;
+}
+
+      #floating-panel {
+        background-color: #fff;
+        border: 1px solid #999;
+        left: 25%;
+        padding: 5px;
+        position: absolute;
+        top: 10px;
+        z-index: 5;
+      }
+    </style>
+  </head>
+
+  <body>
+
+
+    <div id="map"></div>
+
+    <script>
+
+var map, heatmap;
+
+var MIN_LAT=32.540;
+var MAX_LAT=42.000; 
+var MIN_LON=-124.321; 
+var MAX_LON=-114.167;
+
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 7,
+    center: {lat: (MIN_LAT+MAX_LAT)/2.0, lng: (MIN_LON+MAX_LON)/2.0},
+    //mapTypeId: google.maps.MapTypeId.SATELLITE
+//    mapTypeId: google.maps.MapTypeId.TRAFFIC
+  });
+
+   var bounds = new google.maps.LatLngBounds(
+      new google.maps.LatLng(MIN_LAT, MIN_LON),
+      new google.maps.LatLng(MAX_LAT, MAX_LON));
+//   var srcImage = '10km_dijk.csv.phantom.1000.png';
+//   var srcImage = 'californialabor_result.out.phantom.1000.png';
+	var srcImage = 'california_home.out.phantom.1000.png';
+   
+   var overlayOpts = {
+      opacity:0.6
+  }
+    historicalOverlay = new google.maps.GroundOverlay(
+    	srcImage,
+    	bounds,
+    	overlayOpts);
+    
+    historicalOverlay.setMap(map);
+  
+}
+
+    </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCy6BaDTEsYG4EJrbv5IEMSotHOZxUEyvs&signed_in=true&libraries=visualization&callback=initMap">
+    </script>
+  </body>
+</html>
+

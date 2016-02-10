@@ -35,5 +35,6 @@ We provide how to retrieve the shortest distances in `src/query/`. It is easy to
 
 
 ### Heat map generation
-
+To generate the spatial heat map, we borrow the codes from `https://github.com/jeffkaufman/apartment_prices`. 
+We put our heat map generation and html fushion in `src/heatmap`.
 
