@@ -1,0 +1,9 @@
+import org.apache.spark.HashPartitioner
+import scala.collection.mutable.HashMap
+import edu.berkeley.cs.amplab.spark.indexedrdd.IndexedRDD
+import scala.collection.mutable.ListBuffer
+
+
+
+val pairs = sc.sequenceFile[Long, Double]("nyspark").partitionBy(new HashPartitioner(100));
+val pairs_ac = sc.sequenceFile[Long, Double]("nyspark_ac").partitionBy(new HashPartitioner(100));
