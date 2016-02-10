@@ -1,3 +1,6 @@
  val query = sc.textFile("queries.out").map(line => ( line.split(" ")(0).toDouble, line.split(" ")(1).toDouble, line.split(" ")(2).toDouble, line.split(" ")(3).toDouble )).collect()
  
 val result = getDistanceNavie(query, lowdepth, highdepth)
+
+// To query one shortest distance
+hashpair_ac.multiget(genKeys(zz4(40.778721, -74.016952, 40.765461, -73.985710)))
